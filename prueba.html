@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body
+    {
+        margin: 0px;
+        width: 100vw;
+        height: 49.7vw;
+        background-color: black;
+    }
+    section
+    {
+        width: 40vw;
+        height: 35vw;
+        background-color: white;
+        margin: auto;
+        position: relative;
+        top: 7vw;
+        border-radius: 2vw;
+        border-bottom-right-radius: 10vw;
+        box-shadow: 1px 1px 100px 30px gray;
+    }
+    input
+    {
+        width: 6vw;
+        height: 2.5vw;
+        appearance: textfield;
+        border-radius: 0.38vw;
+        outline: none;
+        border: 0.021vw solid rgba(128, 128, 128, 0.411);
+        font-size: 1vw;
+        text-align: center;
+        font-weight: bold;
+    }
+    input:focus
+    {
+        border: 0.021vw solid purple;
+    }
+    label
+    {
+        display: flex;
+        flex-direction: column;
+        font-size: 1vw;
+        width: 8vw;
+    }
+    #Año
+    {
+        position: absolute;
+        bottom: 27vw;
+        left: 4vw;
+    }
+    #Mes
+    {
+        position: absolute;
+        bottom: 27vw;
+        left: 12.5vw;
+    }
+    #Dia
+    {
+        position: absolute;
+        bottom: 27vw;
+        left: 21vw;
+    }
+    .raya
+    {
+        width: 30vw;
+        height: 0.08vw;
+        background-color: gray;
+        position: relative;
+        top: 10vw;
+        left: 4vw;
+    }
+    span
+    {
+        font-size: 0.8vw;
+    }
+    button
+    {
+        background-color:blueviolet;
+        border: none;
+        width: 4vw;
+        height: 4vw;
+        border-radius: 2.5vw;
+        font-size: 2vw;
+        color: white;
+        position: relative;
+        top: 8vw;
+        left: 33vw;
+        cursor: pointer;
+    }
+    button:active
+    {
+        background-color:black;
+        border: none;
+        width: 4vw;
+        height: 4vw;
+        border-radius: 2.5vw;
+        font-size: 2vw;
+        color: white;
+        position: relative;
+        top: 8vw;
+        left: 33vw;
+        cursor: pointer;
+    }
+    h1
+    {
+        position: relative;
+        font-size: 5vw;
+        margin:0px;
+        top: 8vw;
+        left: 4vw;
+    }
+    h1
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    div
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    #valoaño
+    {
+        color: blueviolet;
+    }
+    #valomes
+    {
+        color: blueviolet;
+    }
+    #valodia
+    {
+        color: blueviolet;
+    }
+    #añoL
+    {
+        opacity: 0;
+        color: red;
+    }
+    #mesL
+    {
+        opacity: 0;
+        color: red;
+    }
+    #diaL
+    {
+        opacity: 0;
+        color: red;
+    }
+    @media(max-width:1500px)
+    {
+        body
+        {
+            position: relative;
+            top: 5vw;
+        }
+    }
+    @media(max-width:1300px)
+    {
+        body
+        {
+            position: relative;
+            top: 10vw;
+        }
+    }
+    @media(max-width:1000px)
+    {
+        body
+        {
+            position: relative;
+            top: 20vw;
+        }
+        button
+        {
+            left: 18vw;
+        }
+        button:active
+        {
+            left: 18vw;
+        }
+        .raya
+        {
+            height: 0.18vw;
+        }
+    }
+</style>
+<body>
+    <section>
+        <label id="Año" for=""> Año <input type="number"  placeholder="YYYY" name="Año" id="Vaño"> <span id="añoL">Campo Requerido</span></label>
+        <label id="Mes" for=""> Mes <input type="number"  placeholder="MM" name="Año" id="Vmes"> <span id="mesL">Campo Requerido</span></label>
+        <label id="Dia" for=""> Dia <input type="number"  placeholder="DD" name="Año" id="Vdia"> <span id="diaL">Campo Requerido</span></label>
+        <div class="raya"></div>
+        <button>↓</button>
+        <div>
+            <h1 id="valoaño">--</h1>
+            <h1>Años</h1>
+        </div>
+        <div>
+            <h1 id="valomes">--</h1>
+            <h1>Meses</h1>
+        </div>
+        <div>
+            <h1 id="valodia">--</h1id=>
+            <h1>Dias</h1>
+        </div>
+    </section>
+</body>
+<script>
+    let mes= new Date()
+    mes=mes.getMonth()
+    let año= new Date()
+    año=año.getFullYear()
+    let dia=31
+    let button=document.querySelector('button').addEventListener('click',i=>{
+        if(!document.querySelector('#Vaño').value)
+        {
+            document.querySelector('#añoL').style.opacity='1';
+        }
+        else{
+            document.querySelector('#añoL').style.opacity='0';
+        }
+        if(!document.querySelector('#Vmes').value)
+        {
+            document.querySelector('#mesL').style.opacity='1';
+
+        }
+        else
+        {
+            document.querySelector('#mesL').style.opacity='0';
+        }
+        if(!document.querySelector('#Vdia').value)
+        {
+            document.querySelector('#diaL').style.opacity='1';
+        }
+        else
+        {
+            document.querySelector('#diaL').style.opacity='0';
+        }
+        if(document.querySelector('#Vaño').value&&document.querySelector('#Vmes').value&&document.querySelector('#Vdia').value)
+        {
+            document.querySelector('#valoaño').innerText=parseInt(año)-parseInt(document.querySelector('#Vaño').value)
+            a=document.querySelector('#valomes').innerText=parseInt(mes)-parseInt(document.querySelector('#Vmes').value)
+            if(document.querySelector('#valomes').innerText<0)
+            {
+                document.querySelector('#valoaño').innerText=document.querySelector('#valoaño').innerText-1
+                document.querySelector('#valomes').innerText=12+a
+            }
+            document.querySelector('#valodia').innerText=parseInt(dia)-parseInt(document.querySelector('#Vdia').value)
+            if(document.querySelector('#valodia').innerText>=30)
+            {
+                document.querySelector('#valodia').innerText=0
+            }
+        }
+    });
+</script>
+</html>
